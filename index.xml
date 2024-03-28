@@ -33,10 +33,10 @@
         <description>&lt;h1 id=&#34;docker&#34;&gt;Docker&lt;/h1&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;什么是docker&#34;&gt;&lt;strong&gt;什么是Docker&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Docker是一个容器化平台&lt;/strong&gt;，它以容器的形式将您的应用程序及其所有依赖项打包在一起，以确保您的应用程序在任何环境中无缝运行。&lt;/p&gt;
+&lt;p&gt;Docker是一个容器化平台，它以容器的形式将您的应用程序及其所有依赖项打包在一起，以确保您的应用程序在任何环境中无缝运行。&lt;/p&gt;
 &lt;h2 id=&#34;docker与虚拟机有何不同&#34;&gt;&lt;strong&gt;Docker与虚拟机有何不同&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;**Docker不是虚拟化方法。它依赖于实际实现基于容器的虚拟化或操作系统级虚拟化的其他工具。**为此，Docker最初使用LXC驱动程序，然后移动到libcontainer现在重命名为runc。&lt;/p&gt;
-&lt;p&gt;**Docker主要专注于在应用程序容器内自动部署应用程序。应用程序容器旨在打包和运行单个服务，而系统容器则设计为运行多个进程，如虚拟机。**因此，Docker被视为容器化系统上的容器管理或应用程序部署工具。&lt;/p&gt;
+&lt;p&gt;Docker不是虚拟化方法。它依赖于实际实现基于容器的虚拟化或操作系统级虚拟化的其他工具。为此，Docker最初使用LXC驱动程序，然后移动到libcontainer现在重命名为runc。&lt;/p&gt;
+&lt;p&gt;Docker主要专注于在应用程序容器内自动部署应用程序。应用程序容器旨在打包和运行单个服务，而系统容器则设计为运行多个进程，如虚拟机。因此，Docker被视为容器化系统上的容器管理或应用程序部署工具。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;容器不需要引导操作系统内核，因此可以在不到一秒的时间内创建容器。此功能使基于容器的虚拟化比其他虚拟化方法更加独特和可取&lt;/li&gt;
 &lt;li&gt;由于基于容器的虚拟化为主机增加了很少或没有开销，因此基于容器的虚拟化具有接近本机的性能&lt;/li&gt;
