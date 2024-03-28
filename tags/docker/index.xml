@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Docker on Kingslayer的博客</title>
-        <link>https://BigSmallBrain.github.io/tags/docker/</link>
+        <link>https://bigsmallbrain.github.io/tags/docker/</link>
         <description>Recent content in Docker on Kingslayer的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 28 Mar 2024 08:52:06 +0000</lastBuildDate><atom:link href="https://BigSmallBrain.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 28 Mar 2024 08:52:06 +0000</lastBuildDate><atom:link href="https://bigsmallbrain.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Docker操作</title>
-        <link>https://BigSmallBrain.github.io/p/docker%E6%93%8D%E4%BD%9C/</link>
+        <link>https://bigsmallbrain.github.io/p/docker%E6%93%8D%E4%BD%9C/</link>
         <pubDate>Thu, 28 Mar 2024 08:52:06 +0000</pubDate>
         
-        <guid>https://BigSmallBrain.github.io/p/docker%E6%93%8D%E4%BD%9C/</guid>
+        <guid>https://bigsmallbrain.github.io/p/docker%E6%93%8D%E4%BD%9C/</guid>
         <description>&lt;h1 id=&#34;docker&#34;&gt;Docker&lt;/h1&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;什么是docker&#34;&gt;&lt;strong&gt;什么是Docker&lt;/strong&gt;&lt;/h2&gt;
