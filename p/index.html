@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Docker 什么是Docker Docker是一个容器化平台，它以容器的形式将您的应用程序及其所有依赖项打包在一起，以确保您的应用程序在任何环境中无缝运行。 Docker与虚拟机有何不同 **Docker不是虚拟化方法。它依赖于实际实现基于容器的虚拟化或操作系统级虚拟化的其他工具。**为此，Docker最初使用LXC驱动程序，然后移动到libcontainer现在重命名为runc。 **Docker主要专注于在应用程序容器内自动部署应用程序。应用程序容器旨在打包和运行单个服务，而系统容器则设计为运行多个进程，如虚拟机。**因此，Docker被视为容器化系统上的容器管理或应用程序部署工具。 容器不需要引导操作系统内核，因此可以在不到一秒的时间内创建容器。此功能使基于容器的虚拟化比其他虚拟化方法更加独特和可取 由于基于容器的虚拟化为主机增加了很少或没有开销，因此基于容器的虚拟化具有接近本机的性能 对于基于容器的虚拟化，与其他虚拟化不同，不需要其他软件 主机上的所有容器共享主机的调度程序，从而节省了额外资源的需求 与虚拟机映像相比，容器状态（Docker或LXC映像）的大小很小，因此容器映像很容易分发 容器中的资源管理是通过cgroup实现的。Cgroups不允许容器消耗比分配给它们更多的资源。虽然主机的所有资源都在虚拟机中可见，但无法使用。这可以通过在容器和主机上同时运行top或htop来实现。所有环境的输出看起来都很相似。 什么是Docker镜像 Docker镜像是Docker容器的源代码，Docker镜像用于创建容器。一般使用build命令创建镜像。 什么是Docker容器 Docker容器包括应用程序及其所有依赖项，作为操作系统的独立进程运行。 Docker容器有几种状态 四种状态：运行、已暂停、重新启动、已退出。 DockerFile中最常见的指定是什么 Dockerfile保留字 备注 FROM 基础镜像，当前新镜像是基于哪个镜像的，指定一个已经存在的镜像作为模板。Dockerfile第一条必须是FROM MAINTAINER 镜像维护者的姓名和邮箱地址MAINTAINER kingslayer kingslayer5437@gmail.com RUN 容器构建时需要运行的命令，RUN是在docker build时运行 EXPOSE 当前容器对外暴露出的端口 WORKDIR 指定在创建容器后， 终端默认登录进来的工作目录 USER 指定该镜像以什么样的用户去执行，如果不指定，默认是root（一般不修改该配置） ENV 用来在构建镜像过程中设置环境变量 VOLUME 容器数据卷，用于数据保存和持久化工作。类似于 docker run的-v参数 ADD 将宿主机目录下（或远程文件）的文件拷贝进镜像，且会自动处理URL和解压tar压缩包 COPY 类似ADD，拷贝文件和目录到镜像中 CMD 指定容器启动后要干的事情 ENTRYPOINT 用来指定一个容器启动时要运行的命令。类似于CMD命令，但是ENTRYPOINT不会被docker run后面的命令覆盖，这些命令参数会被当做参数送给ENTRYPOINT指令指定的程序 DockerFile中的命令COPY和ADD命令有什么区别 COPY和ADD的区别时COPY的SRC只能是本地文件，其他用法一致。 Docker的常用命令？ 命令 备注 docker pull 拉去或更新指定的镜像 docker push 将镜像推送到远程仓库 docker rm 删除容器 docker rmi 删除镜像 docker images 列出所有镜像 docker ps 列出所有容器 容器与主机之间的数据拷贝命令 docker cp src 容器:dst 命令用于穷奇与主机之间的数据拷贝">
+<title></title>
+
+<link rel='canonical' href='https://BigSmallBrain.github.io/p/'>
+
+<link rel="stylesheet" href="/scss/style.min.d8118f156935b64eca93aca758476adca858d2c47354971654d9bd2933a0e45f.css"><meta property='og:title' content="">
+<meta property='og:description' content="Docker 什么是Docker Docker是一个容器化平台，它以容器的形式将您的应用程序及其所有依赖项打包在一起，以确保您的应用程序在任何环境中无缝运行。 Docker与虚拟机有何不同 **Docker不是虚拟化方法。它依赖于实际实现基于容器的虚拟化或操作系统级虚拟化的其他工具。**为此，Docker最初使用LXC驱动程序，然后移动到libcontainer现在重命名为runc。 **Docker主要专注于在应用程序容器内自动部署应用程序。应用程序容器旨在打包和运行单个服务，而系统容器则设计为运行多个进程，如虚拟机。**因此，Docker被视为容器化系统上的容器管理或应用程序部署工具。 容器不需要引导操作系统内核，因此可以在不到一秒的时间内创建容器。此功能使基于容器的虚拟化比其他虚拟化方法更加独特和可取 由于基于容器的虚拟化为主机增加了很少或没有开销，因此基于容器的虚拟化具有接近本机的性能 对于基于容器的虚拟化，与其他虚拟化不同，不需要其他软件 主机上的所有容器共享主机的调度程序，从而节省了额外资源的需求 与虚拟机映像相比，容器状态（Docker或LXC映像）的大小很小，因此容器映像很容易分发 容器中的资源管理是通过cgroup实现的。Cgroups不允许容器消耗比分配给它们更多的资源。虽然主机的所有资源都在虚拟机中可见，但无法使用。这可以通过在容器和主机上同时运行top或htop来实现。所有环境的输出看起来都很相似。 什么是Docker镜像 Docker镜像是Docker容器的源代码，Docker镜像用于创建容器。一般使用build命令创建镜像。 什么是Docker容器 Docker容器包括应用程序及其所有依赖项，作为操作系统的独立进程运行。 Docker容器有几种状态 四种状态：运行、已暂停、重新启动、已退出。 DockerFile中最常见的指定是什么 Dockerfile保留字 备注 FROM 基础镜像，当前新镜像是基于哪个镜像的，指定一个已经存在的镜像作为模板。Dockerfile第一条必须是FROM MAINTAINER 镜像维护者的姓名和邮箱地址MAINTAINER kingslayer kingslayer5437@gmail.com RUN 容器构建时需要运行的命令，RUN是在docker build时运行 EXPOSE 当前容器对外暴露出的端口 WORKDIR 指定在创建容器后， 终端默认登录进来的工作目录 USER 指定该镜像以什么样的用户去执行，如果不指定，默认是root（一般不修改该配置） ENV 用来在构建镜像过程中设置环境变量 VOLUME 容器数据卷，用于数据保存和持久化工作。类似于 docker run的-v参数 ADD 将宿主机目录下（或远程文件）的文件拷贝进镜像，且会自动处理URL和解压tar压缩包 COPY 类似ADD，拷贝文件和目录到镜像中 CMD 指定容器启动后要干的事情 ENTRYPOINT 用来指定一个容器启动时要运行的命令。类似于CMD命令，但是ENTRYPOINT不会被docker run后面的命令覆盖，这些命令参数会被当做参数送给ENTRYPOINT指令指定的程序 DockerFile中的命令COPY和ADD命令有什么区别 COPY和ADD的区别时COPY的SRC只能是本地文件，其他用法一致。 Docker的常用命令？ 命令 备注 docker pull 拉去或更新指定的镜像 docker push 将镜像推送到远程仓库 docker rm 删除容器 docker rmi 删除镜像 docker images 列出所有镜像 docker ps 列出所有容器 容器与主机之间的数据拷贝命令 docker cp src 容器:dst 命令用于穷奇与主机之间的数据拷贝">
+<meta property='og:url' content='https://BigSmallBrain.github.io/p/'>
+<meta property='og:site_name' content='Kingslayer的博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="Docker 什么是Docker Docker是一个容器化平台，它以容器的形式将您的应用程序及其所有依赖项打包在一起，以确保您的应用程序在任何环境中无缝运行。 Docker与虚拟机有何不同 **Docker不是虚拟化方法。它依赖于实际实现基于容器的虚拟化或操作系统级虚拟化的其他工具。**为此，Docker最初使用LXC驱动程序，然后移动到libcontainer现在重命名为runc。 **Docker主要专注于在应用程序容器内自动部署应用程序。应用程序容器旨在打包和运行单个服务，而系统容器则设计为运行多个进程，如虚拟机。**因此，Docker被视为容器化系统上的容器管理或应用程序部署工具。 容器不需要引导操作系统内核，因此可以在不到一秒的时间内创建容器。此功能使基于容器的虚拟化比其他虚拟化方法更加独特和可取 由于基于容器的虚拟化为主机增加了很少或没有开销，因此基于容器的虚拟化具有接近本机的性能 对于基于容器的虚拟化，与其他虚拟化不同，不需要其他软件 主机上的所有容器共享主机的调度程序，从而节省了额外资源的需求 与虚拟机映像相比，容器状态（Docker或LXC映像）的大小很小，因此容器映像很容易分发 容器中的资源管理是通过cgroup实现的。Cgroups不允许容器消耗比分配给它们更多的资源。虽然主机的所有资源都在虚拟机中可见，但无法使用。这可以通过在容器和主机上同时运行top或htop来实现。所有环境的输出看起来都很相似。 什么是Docker镜像 Docker镜像是Docker容器的源代码，Docker镜像用于创建容器。一般使用build命令创建镜像。 什么是Docker容器 Docker容器包括应用程序及其所有依赖项，作为操作系统的独立进程运行。 Docker容器有几种状态 四种状态：运行、已暂停、重新启动、已退出。 DockerFile中最常见的指定是什么 Dockerfile保留字 备注 FROM 基础镜像，当前新镜像是基于哪个镜像的，指定一个已经存在的镜像作为模板。Dockerfile第一条必须是FROM MAINTAINER 镜像维护者的姓名和邮箱地址MAINTAINER kingslayer kingslayer5437@gmail.com RUN 容器构建时需要运行的命令，RUN是在docker build时运行 EXPOSE 当前容器对外暴露出的端口 WORKDIR 指定在创建容器后， 终端默认登录进来的工作目录 USER 指定该镜像以什么样的用户去执行，如果不指定，默认是root（一般不修改该配置） ENV 用来在构建镜像过程中设置环境变量 VOLUME 容器数据卷，用于数据保存和持久化工作。类似于 docker run的-v参数 ADD 将宿主机目录下（或远程文件）的文件拷贝进镜像，且会自动处理URL和解压tar压缩包 COPY 类似ADD，拷贝文件和目录到镜像中 CMD 指定容器启动后要干的事情 ENTRYPOINT 用来指定一个容器启动时要运行的命令。类似于CMD命令，但是ENTRYPOINT不会被docker run后面的命令覆盖，这些命令参数会被当做参数送给ENTRYPOINT指令指定的程序 DockerFile中的命令COPY和ADD命令有什么区别 COPY和ADD的区别时COPY的SRC只能是本地文件，其他用法一致。 Docker的常用命令？ 命令 备注 docker pull 拉去或更新指定的镜像 docker push 将镜像推送到远程仓库 docker rm 删除容器 docker rmi 删除镜像 docker images 列出所有镜像 docker ps 列出所有容器 容器与主机之间的数据拷贝命令 docker cp src 容器:dst 命令用于穷奇与主机之间的数据拷贝">
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf9f9af04fe803096d8464a00b1a9c3e2_347729_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Kingslayer的博客</a></h1>
+            <h2 class="site-description">Having our way with this thing called life 🤞</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/BigSmallBrain'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://leetcode.cn/u/bigbigbrain/'
+                        target="_blank"
+                        title="Leetcode"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-leetcode"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 13h7.5" /><path d="M9.424 7.268l4.999 -4.999" /><path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#什么是docker"><strong>什么是Docker</strong></a></li>
+    <li><a href="#docker与虚拟机有何不同"><strong>Docker与虚拟机有何不同</strong></a></li>
+    <li><a href="#什么是docker镜像"><strong>什么是Docker镜像</strong></a></li>
+    <li><a href="#什么是docker容器"><strong>什么是Docker容器</strong></a></li>
+    <li><a href="#docker容器有几种状态"><strong>Docker容器有几种状态</strong></a></li>
+    <li><a href="#dockerfile中最常见的指定是什么"><strong>DockerFile中最常见的指定是什么</strong></a></li>
+    <li><a href="#dockerfile中的命令copy和add命令有什么区别"><strong>DockerFile中的命令COPY和ADD命令有什么区别</strong></a></li>
+    <li><a href="#docker的常用命令"><strong>Docker的常用命令？</strong></a></li>
+    <li><a href="#容器与主机之间的数据拷贝命令"><strong>容器与主机之间的数据拷贝命令</strong></a></li>
+    <li><a href="#启动nginx容器随机端口映射并挂载本地文件目录到容器html的命令"><strong>启动nginx容器（随机端口映射），并挂载本地文件目录到容器html的命令</strong></a></li>
+    <li><a href="#如何使用-docker-技术创建与环境无关的容器系统"><strong>如何使用 Docker 技术创建与环境无关的容器系统</strong></a></li>
+    <li><a href="#有什么方法确定一个-docker-容器运行状态"><strong>有什么方法确定一个 Docker 容器运行状态</strong></a></li>
+    <li><a href="#docker-image-和-docker-layer-层-有什么不同"><strong>Docker Image 和 Docker Layer (层) 有什么不同</strong></a></li>
+    <li><a href="#如何停止所有正在运行的容器"><strong>如何停止所有正在运行的容器</strong></a></li>
+    <li><a href="#如何清理批量后台停止的容器"><strong>如何清理批量后台停止的容器</strong></a></li>
+    <li><a href="#如何临时退出一个正在交互的容器的终端而不终止它"><strong>如何临时退出一个正在交互的容器的终端，而不终止它</strong></a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="docker">Docker</h1>
+<hr>
+<h2 id="什么是docker"><strong>什么是Docker</strong></h2>
+<p><strong>Docker是一个容器化平台</strong>，它以容器的形式将您的应用程序及其所有依赖项打包在一起，以确保您的应用程序在任何环境中无缝运行。</p>
+<h2 id="docker与虚拟机有何不同"><strong>Docker与虚拟机有何不同</strong></h2>
+<p>**Docker不是虚拟化方法。它依赖于实际实现基于容器的虚拟化或操作系统级虚拟化的其他工具。**为此，Docker最初使用LXC驱动程序，然后移动到libcontainer现在重命名为runc。</p>
+<p>**Docker主要专注于在应用程序容器内自动部署应用程序。应用程序容器旨在打包和运行单个服务，而系统容器则设计为运行多个进程，如虚拟机。**因此，Docker被视为容器化系统上的容器管理或应用程序部署工具。</p>
+<ol>
+<li>容器不需要引导操作系统内核，因此可以在不到一秒的时间内创建容器。此功能使基于容器的虚拟化比其他虚拟化方法更加独特和可取</li>
+<li>由于基于容器的虚拟化为主机增加了很少或没有开销，因此基于容器的虚拟化具有接近本机的性能</li>
+<li>对于基于容器的虚拟化，与其他虚拟化不同，不需要其他软件</li>
+<li>主机上的所有容器共享主机的调度程序，从而节省了额外资源的需求</li>
+<li>与虚拟机映像相比，容器状态（Docker或LXC映像）的大小很小，因此容器映像很容易分发</li>
+<li>容器中的资源管理是通过cgroup实现的。Cgroups不允许容器消耗比分配给它们更多的资源。虽然主机的所有资源都在虚拟机中可见，但无法使用。这可以通过在容器和主机上同时运行top或htop来实现。所有环境的输出看起来都很相似。</li>
+</ol>
+<h2 id="什么是docker镜像"><strong>什么是Docker镜像</strong></h2>
+<p>Docker镜像是Docker容器的源代码，Docker镜像用于创建容器。一般使用build命令创建镜像。</p>
+<h2 id="什么是docker容器"><strong>什么是Docker容器</strong></h2>
+<p>Docker容器包括应用程序及其所有依赖项，作为操作系统的独立进程运行。</p>
+<h2 id="docker容器有几种状态"><strong>Docker容器有几种状态</strong></h2>
+<p>四种状态：运行、已暂停、重新启动、已退出。</p>
+<h2 id="dockerfile中最常见的指定是什么"><strong>DockerFile中最常见的指定是什么</strong></h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Dockerfile保留字</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FROM</td>
+<td>基础镜像，当前新镜像是基于哪个镜像的，指定一个已经存在的镜像作为模板。Dockerfile第一条必须是FROM</td>
+</tr>
+<tr>
+<td>MAINTAINER</td>
+<td>镜像维护者的姓名和邮箱地址MAINTAINER kingslayer <a class="link" href="mailto:kingslayer5437@gmail.com" >kingslayer5437@gmail.com</a></td>
+</tr>
+<tr>
+<td>RUN</td>
+<td>容器构建时需要运行的命令，RUN是在docker build时运行</td>
+</tr>
+<tr>
+<td>EXPOSE</td>
+<td>当前容器对外暴露出的端口</td>
+</tr>
+<tr>
+<td>WORKDIR</td>
+<td>指定在创建容器后， 终端默认登录进来的工作目录</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>指定该镜像以什么样的用户去执行，如果不指定，默认是root（一般不修改该配置）</td>
+</tr>
+<tr>
+<td>ENV</td>
+<td>用来在构建镜像过程中设置环境变量</td>
+</tr>
+<tr>
+<td>VOLUME</td>
+<td>容器数据卷，用于数据保存和持久化工作。类似于 docker run的-v参数</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>将宿主机目录下（或远程文件）的文件拷贝进镜像，且会自动处理URL和解压tar压缩包</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td>类似ADD，拷贝文件和目录到镜像中</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>指定容器启动后要干的事情</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>用来指定一个容器启动时要运行的命令。类似于CMD命令，但是ENTRYPOINT不会被docker run后面的命令覆盖，这些命令参数会被当做参数送给ENTRYPOINT指令指定的程序</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="dockerfile中的命令copy和add命令有什么区别"><strong>DockerFile中的命令COPY和ADD命令有什么区别</strong></h2>
+<p>COPY和ADD的区别时COPY的SRC只能是本地文件，其他用法一致。</p>
+<h2 id="docker的常用命令"><strong>Docker的常用命令？</strong></h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker pull</td>
+<td>拉去或更新指定的镜像</td>
+</tr>
+<tr>
+<td>docker push</td>
+<td>将镜像推送到远程仓库</td>
+</tr>
+<tr>
+<td>docker rm</td>
+<td>删除容器</td>
+</tr>
+<tr>
+<td>docker rmi</td>
+<td>删除镜像</td>
+</tr>
+<tr>
+<td>docker images</td>
+<td>列出所有镜像</td>
+</tr>
+<tr>
+<td>docker ps</td>
+<td>列出所有容器</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="容器与主机之间的数据拷贝命令"><strong>容器与主机之间的数据拷贝命令</strong></h2>
+<p><code>docker cp src 容器:dst</code>   命令用于穷奇与主机之间的数据拷贝</p>
+<ul>
+<li>主机到哦容器：<code>docker cp /www 96f7f14e99ab:/www/</code></li>
+<li>容器到主机：<code>docker cp 96f7f14e99ab:/www /tmp</code></li>
+</ul>
+<h2 id="启动nginx容器随机端口映射并挂载本地文件目录到容器html的命令"><strong>启动nginx容器（随机端口映射），并挂载本地文件目录到容器html的命令</strong></h2>
+<p><code>docker run -d -p --name nginxServer -v /home/nginx:/usr/share/nginx/html nginx:latest</code></p>
+<h2 id="如何使用-docker-技术创建与环境无关的容器系统"><strong>如何使用 Docker 技术创建与环境无关的容器系统</strong></h2>
+<p>Docker 技术有三中主要的技术途径辅助完成此需求：</p>
+<ul>
+<li>存储卷（Volumes）</li>
+<li>环境变量（Environment variable）注入</li>
+<li>只读（Read-only）文件系统</li>
+</ul>
+<h2 id="有什么方法确定一个-docker-容器运行状态"><strong>有什么方法确定一个 Docker 容器运行状态</strong></h2>
+<p>使用如下命令行命令确定一个 Docker 容器的运行状态：<code>docker ps -a</code></p>
+<p>这将列表形式输出运行在主机上的所有 Docker 容器及其运行状态。从这个列表中很容易找到 想要的容器及其运行状态。</p>
+<h2 id="docker-image-和-docker-layer-层-有什么不同"><strong>Docker Image 和 Docker Layer (层) 有什么不同</strong></h2>
+<p>Image ：一个 Docker Image 是由一系列 Docker 只读层（read-only Layer）创建出来的。</p>
+<p>Layer： 在 Dockerfile 配置文件中完成的一条配置指令，即表示一个 Docker 层（Layer）。 如下 Dockerfile 文件包含 4 条指令，每条指令创建一个层（Layer）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> ubuntu:15.04 </span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> make /app <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> python /app/app.py<span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>重点，每层只对其前一层进行一（某）些进化。</p>
+<h2 id="如何停止所有正在运行的容器"><strong>如何停止所有正在运行的容器</strong></h2>
+<p>使用<code>docker kill $(sudo docker ps -q)</code></p>
+<h2 id="如何清理批量后台停止的容器"><strong>如何清理批量后台停止的容器</strong></h2>
+<p>使用<code>docker rm $(sudo docker ps -a -q)</code></p>
+<h2 id="如何临时退出一个正在交互的容器的终端而不终止它"><strong>如何临时退出一个正在交互的容器的终端，而不终止它</strong></h2>
+<p>按<code>Ctrl+p+q</code>，如果按<code>Ctrl+c</code>会使容器内的应用进程终止，进而会使容器终止。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 Kingslayer的博客
+    </section>
+    
+    <section class="powerby">
+        
+
+        
+
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

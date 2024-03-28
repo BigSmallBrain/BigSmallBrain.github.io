@@ -6,7 +6,31 @@
         <description>Recent content in Tags on Kingslayer的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://BigSmallBrain.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 28 Mar 2024 08:52:06 +0000</lastBuildDate><atom:link href="https://BigSmallBrain.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Devops</title>
+        <link>https://BigSmallBrain.github.io/tags/devops/</link>
+        <pubDate>Thu, 28 Mar 2024 08:52:06 +0000</pubDate>
+        
+        <guid>https://BigSmallBrain.github.io/tags/devops/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Docker</title>
+        <link>https://BigSmallBrain.github.io/tags/docker/</link>
+        <pubDate>Thu, 28 Mar 2024 08:52:06 +0000</pubDate>
+        
+        <guid>https://BigSmallBrain.github.io/tags/docker/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Linux</title>
+        <link>https://BigSmallBrain.github.io/tags/linux/</link>
+        <pubDate>Thu, 28 Mar 2024 08:52:06 +0000</pubDate>
+        
+        <guid>https://BigSmallBrain.github.io/tags/linux/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Css</title>
         <link>https://BigSmallBrain.github.io/tags/css/</link>
         <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
