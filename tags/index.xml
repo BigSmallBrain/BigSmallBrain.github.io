@@ -2,72 +2,72 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on Kingslayer的博客</title>
-        <link>https://bigsmallbrain.github.io/tags/</link>
+        <link>http://0.0.0.0:1313/tags/</link>
         <description>Recent content in Tags on Kingslayer的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 28 Mar 2024 08:52:06 +0000</lastBuildDate><atom:link href="https://bigsmallbrain.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 28 Mar 2024 08:52:06 +0000</lastBuildDate><atom:link href="http://0.0.0.0:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Devops</title>
-        <link>https://bigsmallbrain.github.io/tags/devops/</link>
+        <link>http://0.0.0.0:1313/tags/devops/</link>
         <pubDate>Thu, 28 Mar 2024 08:52:06 +0000</pubDate>
         
-        <guid>https://bigsmallbrain.github.io/tags/devops/</guid>
+        <guid>http://0.0.0.0:1313/tags/devops/</guid>
         <description></description>
         </item>
         <item>
         <title>Docker</title>
-        <link>https://bigsmallbrain.github.io/tags/docker/</link>
+        <link>http://0.0.0.0:1313/tags/docker/</link>
         <pubDate>Thu, 28 Mar 2024 08:52:06 +0000</pubDate>
         
-        <guid>https://bigsmallbrain.github.io/tags/docker/</guid>
+        <guid>http://0.0.0.0:1313/tags/docker/</guid>
         <description></description>
         </item>
         <item>
         <title>Linux</title>
-        <link>https://bigsmallbrain.github.io/tags/linux/</link>
+        <link>http://0.0.0.0:1313/tags/linux/</link>
         <pubDate>Thu, 28 Mar 2024 08:52:06 +0000</pubDate>
         
-        <guid>https://bigsmallbrain.github.io/tags/linux/</guid>
+        <guid>http://0.0.0.0:1313/tags/linux/</guid>
         <description></description>
         </item>
         <item>
         <title>Css</title>
-        <link>https://bigsmallbrain.github.io/tags/css/</link>
+        <link>http://0.0.0.0:1313/tags/css/</link>
         <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://bigsmallbrain.github.io/tags/css/</guid>
+        <guid>http://0.0.0.0:1313/tags/css/</guid>
         <description></description>
         </item>
         <item>
         <title>Html</title>
-        <link>https://bigsmallbrain.github.io/tags/html/</link>
+        <link>http://0.0.0.0:1313/tags/html/</link>
         <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://bigsmallbrain.github.io/tags/html/</guid>
+        <guid>http://0.0.0.0:1313/tags/html/</guid>
         <description></description>
         </item>
         <item>
         <title>Markdown</title>
-        <link>https://bigsmallbrain.github.io/tags/markdown/</link>
+        <link>http://0.0.0.0:1313/tags/markdown/</link>
         <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://bigsmallbrain.github.io/tags/markdown/</guid>
+        <guid>http://0.0.0.0:1313/tags/markdown/</guid>
         <description></description>
         </item>
         <item>
         <title>Themes</title>
-        <link>https://bigsmallbrain.github.io/tags/themes/</link>
+        <link>http://0.0.0.0:1313/tags/themes/</link>
         <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://bigsmallbrain.github.io/tags/themes/</guid>
+        <guid>http://0.0.0.0:1313/tags/themes/</guid>
         <description></description>
         </item>
         <item>
         <title>Example Tag</title>
-        <link>https://bigsmallbrain.github.io/tags/example-tag/</link>
+        <link>http://0.0.0.0:1313/tags/example-tag/</link>
         <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://bigsmallbrain.github.io/tags/example-tag/</guid>
+        <guid>http://0.0.0.0:1313/tags/example-tag/</guid>
         <description></description>
         </item>
         

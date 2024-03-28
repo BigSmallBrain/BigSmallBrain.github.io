@@ -2,80 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://bigsmallbrain.github.io/p/hello-world/</loc>
+    <loc>http://0.0.0.0:1313/p/hello-world/</loc>
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/p/docker%E6%93%8D%E4%BD%9C/</loc>
+    <loc>http://0.0.0.0:1313/p/docker%E6%93%8D%E4%BD%9C/</loc>
     <lastmod>2024-03-28T08:52:06+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/</loc>
+    <loc>http://0.0.0.0:1313/</loc>
     <lastmod>2024-03-28T08:52:06+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/categories/</loc>
+    <loc>http://0.0.0.0:1313/categories/</loc>
     <lastmod>2024-03-28T08:52:06+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/tags/devops/</loc>
+    <loc>http://0.0.0.0:1313/tags/devops/</loc>
     <lastmod>2024-03-28T08:52:06+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/tags/docker/</loc>
+    <loc>http://0.0.0.0:1313/tags/docker/</loc>
     <lastmod>2024-03-28T08:52:06+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/categories/docker/</loc>
+    <loc>http://0.0.0.0:1313/categories/docker/</loc>
     <lastmod>2024-03-28T08:52:06+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/tags/linux/</loc>
+    <loc>http://0.0.0.0:1313/tags/linux/</loc>
     <lastmod>2024-03-28T08:52:06+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/post/</loc>
+    <loc>http://0.0.0.0:1313/post/</loc>
     <lastmod>2024-03-28T08:52:06+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/tags/</loc>
+    <loc>http://0.0.0.0:1313/tags/</loc>
     <lastmod>2024-03-28T08:52:06+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/tags/css/</loc>
+    <loc>http://0.0.0.0:1313/tags/css/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/tags/html/</loc>
+    <loc>http://0.0.0.0:1313/tags/html/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/tags/markdown/</loc>
+    <loc>http://0.0.0.0:1313/tags/markdown/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/p/markdown-syntax-guide/</loc>
+    <loc>http://0.0.0.0:1313/p/markdown-syntax-guide/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/categories/syntax/</loc>
+    <loc>http://0.0.0.0:1313/categories/syntax/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/tags/themes/</loc>
+    <loc>http://0.0.0.0:1313/tags/themes/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/categories/themes/</loc>
+    <loc>http://0.0.0.0:1313/categories/themes/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/p/image-gallery/</loc>
+    <loc>http://0.0.0.0:1313/p/image-gallery/</loc>
     <lastmod>2023-08-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/p/shortcodes/</loc>
+    <loc>http://0.0.0.0:1313/p/shortcodes/</loc>
     <lastmod>2023-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/p/math-typesetting/</loc>
+    <loc>http://0.0.0.0:1313/p/math-typesetting/</loc>
     <lastmod>2023-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/categories/example-category/</loc>
+    <loc>http://0.0.0.0:1313/categories/example-category/</loc>
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/tags/example-tag/</loc>
+    <loc>http://0.0.0.0:1313/tags/example-tag/</loc>
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/page/</loc>
+    <loc>http://0.0.0.0:1313/page/</loc>
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/archives/</loc>
+    <loc>http://0.0.0.0:1313/archives/</loc>
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/search/</loc>
+    <loc>http://0.0.0.0:1313/search/</loc>
   </url><url>
-    <loc>https://bigsmallbrain.github.io/%E5%8F%8B%E9%93%BE/</loc>
+    <loc>http://0.0.0.0:1313/%E5%8F%8B%E9%93%BE/</loc>
   </url>
 </urlset>
