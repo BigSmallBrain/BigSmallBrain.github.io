@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="基础 1. 什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员? 数据库 : 数据库（DataBase 简称 DB）就是信息的集合或者说数据库是由数据库管理系统管理的数据的集合。 数据库管理系统 : 数据库管理系统（Database Management System 简称 DBMS）是一种操纵和管理数据库的大型软件，通常用于建立、使用和维护数据库。 数据库系统 : 数据库系统（Data Base System，简称 DBS）通常由软件、数据库和数据管理员（DBA）组成。 数据库管理员 : 数据库管理员（Database Administrator, 简称 DBA）负责全面管理和控制数据库系统。 2. 什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？ 元组：元组（tuple）是关系数据库中的基本概念，关系是一张表，表中的每行（即数据库中的每条记录）就是一个元组，每列就是一个属性。 码：码就是能唯一标识实体的属性，对应表中的列。 候选码：例如：在学生实体中，“学号”是能唯一的区分学生实体的，同时又假设“姓名”、“班级”的属性组合足以区分学生实体，那么学号和姓名，班级都是候选码。 主码 : 主码也叫主键。 一个实体集中只能有一个主码，但可以有多个候选码。 外码 : 外码也叫外键。如果一个关系中的一个属性是另外一个关系中的主码则这个属性为外码。 主属性：候选码中出现过的属性称为主属性。 非主属性： 不包含在任何一个候选码中的属性称为非主属性。 3. 什么是 ER 图？ ER 图\u00a0全称是 Entity Relationship Diagram（实体联系图），提供了表示实体类型、属性和联系的方法。 ER 图由下面 3 个要素组成：实体、属性、联系。 下图是一个学生选课的 ER 图，每个学生可以选若干门课程，同一门课程也可以被若干人选择，所以它们之间的关系是多对多（M: N）；另外，还有其他两种实体之间的关系是：1 对 1（1:1）、1 对多（1: N）。">
+<title>数据库基础</title>
+
+<link rel='canonical' href='https://BigSmallBrain.github.io/p/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/'>
+
+<link rel="stylesheet" href="/scss/style.min.d8118f156935b64eca93aca758476adca858d2c47354971654d9bd2933a0e45f.css"><meta property='og:title' content="数据库基础">
+<meta property='og:description' content="基础 1. 什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员? 数据库 : 数据库（DataBase 简称 DB）就是信息的集合或者说数据库是由数据库管理系统管理的数据的集合。 数据库管理系统 : 数据库管理系统（Database Management System 简称 DBMS）是一种操纵和管理数据库的大型软件，通常用于建立、使用和维护数据库。 数据库系统 : 数据库系统（Data Base System，简称 DBS）通常由软件、数据库和数据管理员（DBA）组成。 数据库管理员 : 数据库管理员（Database Administrator, 简称 DBA）负责全面管理和控制数据库系统。 2. 什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？ 元组：元组（tuple）是关系数据库中的基本概念，关系是一张表，表中的每行（即数据库中的每条记录）就是一个元组，每列就是一个属性。 码：码就是能唯一标识实体的属性，对应表中的列。 候选码：例如：在学生实体中，“学号”是能唯一的区分学生实体的，同时又假设“姓名”、“班级”的属性组合足以区分学生实体，那么学号和姓名，班级都是候选码。 主码 : 主码也叫主键。 一个实体集中只能有一个主码，但可以有多个候选码。 外码 : 外码也叫外键。如果一个关系中的一个属性是另外一个关系中的主码则这个属性为外码。 主属性：候选码中出现过的属性称为主属性。 非主属性： 不包含在任何一个候选码中的属性称为非主属性。 3. 什么是 ER 图？ ER 图\u00a0全称是 Entity Relationship Diagram（实体联系图），提供了表示实体类型、属性和联系的方法。 ER 图由下面 3 个要素组成：实体、属性、联系。 下图是一个学生选课的 ER 图，每个学生可以选若干门课程，同一门课程也可以被若干人选择，所以它们之间的关系是多对多（M: N）；另外，还有其他两种实体之间的关系是：1 对 1（1:1）、1 对多（1: N）。">
+<meta property='og:url' content='https://BigSmallBrain.github.io/p/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/'>
+<meta property='og:site_name' content='Kingslayer的博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='MySQL' /><meta property='article:tag' content='NoSQL' /><meta property='article:published_time' content='2024-04-15T06:19:12&#43;00:00'/><meta property='article:modified_time' content='2024-04-15T06:19:12&#43;00:00'/>
+<meta name="twitter:title" content="数据库基础">
+<meta name="twitter:description" content="基础 1. 什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员? 数据库 : 数据库（DataBase 简称 DB）就是信息的集合或者说数据库是由数据库管理系统管理的数据的集合。 数据库管理系统 : 数据库管理系统（Database Management System 简称 DBMS）是一种操纵和管理数据库的大型软件，通常用于建立、使用和维护数据库。 数据库系统 : 数据库系统（Data Base System，简称 DBS）通常由软件、数据库和数据管理员（DBA）组成。 数据库管理员 : 数据库管理员（Database Administrator, 简称 DBA）负责全面管理和控制数据库系统。 2. 什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？ 元组：元组（tuple）是关系数据库中的基本概念，关系是一张表，表中的每行（即数据库中的每条记录）就是一个元组，每列就是一个属性。 码：码就是能唯一标识实体的属性，对应表中的列。 候选码：例如：在学生实体中，“学号”是能唯一的区分学生实体的，同时又假设“姓名”、“班级”的属性组合足以区分学生实体，那么学号和姓名，班级都是候选码。 主码 : 主码也叫主键。 一个实体集中只能有一个主码，但可以有多个候选码。 外码 : 外码也叫外键。如果一个关系中的一个属性是另外一个关系中的主码则这个属性为外码。 主属性：候选码中出现过的属性称为主属性。 非主属性： 不包含在任何一个候选码中的属性称为非主属性。 3. 什么是 ER 图？ ER 图\u00a0全称是 Entity Relationship Diagram（实体联系图），提供了表示实体类型、属性和联系的方法。 ER 图由下面 3 个要素组成：实体、属性、联系。 下图是一个学生选课的 ER 图，每个学生可以选若干门课程，同一门课程也可以被若干人选择，所以它们之间的关系是多对多（M: N）；另外，还有其他两种实体之间的关系是：1 对 1（1:1）、1 对多（1: N）。">
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf9f9af04fe803096d8464a00b1a9c3e2_347729_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Kingslayer的博客</a></h1>
+            <h2 class="site-description">Having our way with this thing called life 🤞</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/BigSmallBrain'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://leetcode.cn/u/bigbigbrain/'
+                        target="_blank"
+                        title="Leetcode"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-leetcode"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 13h7.5" /><path d="M9.424 7.268l4.999 -4.999" /><path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-什么是数据库-数据库管理系统-数据库系统-数据库管理员">1. 什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员?</a></li>
+    <li><a href="#2-什么是元组-码-候选码-主码-外码-主属性-非主属性">2. 什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？</a></li>
+    <li><a href="#3-什么是-er-图">3. 什么是 ER 图？</a></li>
+    <li><a href="#4-数据库范式了解吗">4. 数据库范式了解吗?</a></li>
+    <li><a href="#5-主键和外键有什么区别">5. 主键和外键有什么区别?</a></li>
+    <li><a href="#6-为什么不推荐使用外键与级联">6. 为什么不推荐使用外键与级联？</a></li>
+    <li><a href="#7-dropdelete-与-truncate-区别">7. drop、delete 与 truncate 区别？</a>
+      <ol>
+        <li><a href="#用法不同">用法不同</a></li>
+        <li><a href="#属于不同的数据库语言">属于不同的数据库语言</a></li>
+        <li><a href="#执行速度不同">执行速度不同</a></li>
+      </ol>
+    </li>
+    <li><a href="#8-数据库设计通常分为哪几步">8. 数据库设计通常分为哪几步?</a></li>
+    <li><a href="#9-nosql-是什么">9. NoSQL 是什么？</a></li>
+    <li><a href="#10-sql-和-nosql-有什么区别">10. SQL 和 NoSQL 有什么区别？</a></li>
+    <li><a href="#11-nosql-数据库有什么优势">11. NoSQL 数据库有什么优势？</a></li>
+    <li><a href="#12-mysql-字符编码集中有两套-utf-8-编码实现">12. MySQL 字符编码集中有两套 UTF-8 编码实现</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/database/" >
+                Database
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">数据库基础</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-04-15</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="基础">基础</h1>
+<hr>
+<h2 id="1-什么是数据库-数据库管理系统-数据库系统-数据库管理员">1. 什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员?</h2>
+<ul>
+<li><strong>数据库</strong> : 数据库（DataBase 简称 DB）就是信息的集合或者说数据库是由数据库管理系统管理的数据的集合。</li>
+<li><strong>数据库管理系统</strong> : 数据库管理系统（Database Management System 简称 DBMS）是一种操纵和管理数据库的大型软件，通常用于建立、使用和维护数据库。</li>
+<li><strong>数据库系统</strong> : 数据库系统（Data Base System，简称 DBS）通常由软件、数据库和数据管理员（DBA）组成。</li>
+<li><strong>数据库管理员</strong> : 数据库管理员（Database Administrator, 简称 DBA）负责全面管理和控制数据库系统。</li>
+</ul>
+<h2 id="2-什么是元组-码-候选码-主码-外码-主属性-非主属性">2. 什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？</h2>
+<ul>
+<li><strong>元组</strong>：元组（tuple）是关系数据库中的基本概念，关系是一张表，表中的每行（即数据库中的每条记录）就是一个元组，每列就是一个属性。</li>
+<li><strong>码</strong>：码就是能唯一标识实体的属性，对应表中的列。</li>
+<li><strong>候选码</strong>：例如：在学生实体中，“学号”是能唯一的区分学生实体的，同时又假设“姓名”、“班级”的属性组合足以区分学生实体，那么学号和姓名，班级都是候选码。</li>
+<li><strong>主码</strong> : 主码也叫主键。 一个实体集中只能有一个主码，但可以有多个候选码。</li>
+<li><strong>外码</strong> : 外码也叫外键。如果一个关系中的一个属性是另外一个关系中的主码则这个属性为外码。</li>
+<li><strong>主属性</strong>：候选码中出现过的属性称为主属性。</li>
+<li><strong>非主属性：</strong> 不包含在任何一个候选码中的属性称为非主属性。</li>
+</ul>
+<h2 id="3-什么是-er-图">3. 什么是 ER 图？</h2>
+<p><strong>ER 图</strong> 全称是 Entity Relationship Diagram（实体联系图），提供了表示实体类型、属性和联系的方法。</p>
+<p>ER 图由下面 3 个要素组成：实体、属性、联系。</p>
+<p>下图是一个学生选课的 ER 图，每个学生可以选若干门课程，同一门课程也可以被若干人选择，所以它们之间的关系是多对多（M: N）；另外，还有其他两种实体之间的关系是：1 对 1（1:1）、1 对多（1: N）。</p>
+<p><img src="/index1/Untitled.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Untitled"
+	
+	
+></p>
+<h2 id="4-数据库范式了解吗">4. 数据库范式了解吗?</h2>
+<p>数据库范式有 3 种：</p>
+<ul>
+<li><strong>1NF(第一范式)：属性不可再分。</strong></li>
+<li>2NF(第二范式)：在1NF 的基础之上，消除了非主属性对于码的部分函数依赖。</li>
+<li>3NF(第三范式)：在 2NF 的基础之上，消除了非主属性对于码的传递函数依赖 。</li>
+</ul>
+<h2 id="5-主键和外键有什么区别">5. 主键和外键有什么区别?</h2>
+<ul>
+<li><strong>主键(主码)</strong>：主键用于唯一标识一个元组，不能有重复，不允许为空。一个表只能有一个主键。</li>
+<li><strong>外键(外码)</strong>：外键用来和其他表建立联系用，外键是另一表的主键，外键是可以有重复的，可以是空值。一个表可以有多个外键。</li>
+</ul>
+<h2 id="6-为什么不推荐使用外键与级联">6. 为什么不推荐使用外键与级联？</h2>
+<ul>
+<li><strong>增加了复杂性</strong></li>
+<li><strong>增加了额外工作</strong></li>
+<li><strong>对分库分表不友好</strong></li>
+</ul>
+<p>实际上，外键也是有很多好处的，比如：保证了数据库数据的一致性和完整性；级联操作方便，减轻了程序代码量等。</p>
+<h2 id="7-dropdelete-与-truncate-区别">7. drop、delete 与 truncate 区别？</h2>
+<h3 id="用法不同">用法不同</h3>
+<ul>
+<li><code>drop</code>（丢弃数据）: <code>drop table 表名</code> ，直接将表都删除掉，在删除表的时候使用。</li>
+<li><code>truncate</code> （清空数据）: <code>truncate table 表名</code> ，只删除表中的数据，再插入数据的时候自增长 id 又从 1 开始，在清空表中数据的时候使用。</li>
+<li><code>delete</code>（删除数据）: <code>delete from 表名 where 列名=值</code>，删除某一行的数据，如果不加 <code>where</code> 子句和<code>truncate table 表名</code>作用类似。</li>
+</ul>
+<p><code>truncate</code> 和不带 <code>where</code>子句的 <code>delete</code>、以及 <code>drop</code> 都会删除表内的数据，但是 <strong><code>truncate</code> 和 <code>delete</code> 只删除数据不删除表的结构(定义)，执行 <code>drop</code> 语句，此表的结构也会删除，也就是执行<code>drop</code> 之后对应的表不复存在。</strong></p>
+<h3 id="属于不同的数据库语言">属于不同的数据库语言</h3>
+<p><code>truncate</code> 和 <code>drop</code> 属于 DDL（数据定义语言）语句，操作立即生效，原数据不放到 rollback segment 中，不能回滚，操作不触发 trigger。而 <code>delete</code> 语句是 DML（数据库操作语言）语句，这个操作会放到 rollback segment 中，事务提交之后才生效。</p>
+<p><strong>DML 语句和 DDL 语句区别：</strong></p>
+<ul>
+<li>DML 是数据库操作语言（Data Manipulation Language）的缩写，是指对数据库中表记录的操作，主要包括表记录的插入、更新、删除和查询，是开发人员日常使用最频繁的操作。</li>
+<li>DDL （Data Definition Language）是数据定义语言的缩写，简单来说，就是对数据库内部的对象进行创建、删除、修改的操作语言。它和 DML 语言的最大区别是 DML 只是对表内部数据的操作，而不涉及到表的定义、结构的修改，更不会涉及到其他对象。DDL 语句更多的被数据库管理员（DBA）所使用，一般的开发人员很少使用。</li>
+</ul>
+<p>另外，由于<code>select</code>不会对表进行破坏，所以有的地方也会把<code>select</code>单独区分开叫做数据库查询语言 DQL（Data Query Language）。</p>
+<h3 id="执行速度不同">执行速度不同</h3>
+<p>一般来说：<code>drop</code> &gt; <code>truncate</code> &gt; <code>delete</code></p>
+<h2 id="8-数据库设计通常分为哪几步">8. 数据库设计通常分为哪几步?</h2>
+<ul>
+<li><strong>需求分析</strong> : 分析用户的需求，包括数据、功能和性能需求。</li>
+<li><strong>概念结构设计</strong> : 主要采用 E-R 模型进行设计，包括画 E-R 图。</li>
+<li><strong>逻辑结构设计</strong> : 通过将 E-R 图转换成表，实现从 E-R 模型到关系模型的转换。</li>
+<li><strong>物理结构设计</strong> : 主要是为所设计的数据库选择合适的存储结构和存取路径。</li>
+<li><strong>数据库实施</strong> : 包括编程、测试和试运行。</li>
+<li><strong>数据库的运行和维护</strong> : 系统的运行与数据库的日常维护。</li>
+</ul>
+<h2 id="9-nosql-是什么">9. NoSQL 是什么？</h2>
+<p>NoSQL（Not Only SQL 的缩写）泛指非关系型的数据库，主要针对的是键值、文档以及图形类型数据存储。并且，NoSQL 数据库天生支持分布式，数据冗余和数据分片等特性，旨在提供可扩展的高可用高性能数据存储解决方案。</p>
+<p>一个常见的误解是 NoSQL 数据库或非关系型数据库不能很好地存储关系型数据。<strong>NoSQL 数据库可以存储关系型数据—它们与关系型数据库的存储方式不同。</strong></p>
+<p>NoSQL 数据库代表：HBase、Cassandra、MongoDB、Redis。</p>
+<p><img src="/index1/Untitled%201.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Untitled"
+	
+	
+></p>
+<h2 id="10-sql-和-nosql-有什么区别">10. SQL 和 NoSQL 有什么区别？</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>SQL 数据库</th>
+<th>NoSQL 数据库</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>结构化存储，具有固定行和列的表格</td>
+<td>非结构化存储。文档：JSON 文档；键值：键值对；宽列：包含行和动态列的表；图：节点和边</td>
+</tr>
+<tr>
+<td>Oracle、MySQL、Microsoft SQL Server、PostgreSQL</td>
+<td>文档：MongoDB、CouchDB，键值：Redis、DynamoDB，宽列：Cassandra、 HBase，图表：Neo4j、 Amazon Neptune、Giraph</td>
+</tr>
+<tr>
+<td>结构化查询语言（SQL）</td>
+<td>数据访问语法可能因数据库而异</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="11-nosql-数据库有什么优势">11. NoSQL 数据库有什么优势？</h2>
+<p>NoSQL 数据库非常适合许多现代应用程序，例如移动、Web 和游戏等应用程序，它们需要灵活、可扩展、高性能和功能强大的数据库以提供卓越的用户体验。</p>
+<ul>
+<li><strong>灵活性：</strong> NoSQL 数据库通常提供灵活的架构，以实现更快速、更多的迭代开发。灵活的数据模型使 NoSQL 数据库成为半结构化和非结构化数据的理想之选。</li>
+<li><strong>可扩展性：</strong> NoSQL 数据库通常被设计为通过使用分布式硬件集群来横向扩展，而不是通过添加昂贵和强大的服务器来纵向扩展。</li>
+<li><strong>高性能：</strong> NoSQL 数据库针对特定的数据模型和访问模式进行了优化，这与尝试使用关系数据库完成类似功能相比可实现更高的性能。</li>
+<li><strong>强大的功能：</strong> NoSQL 数据库提供功能强大的 API 和数据类型，专门针对其各自的数据模型而构建。</li>
+</ul>
+<h2 id="12-mysql-字符编码集中有两套-utf-8-编码实现">12. MySQL 字符编码集中有两套 UTF-8 编码实现</h2>
+<p>MySQL 字符编码集中有两套 UTF-8 编码实现：</p>
+<ul>
+<li><strong><code>utf8</code></strong>：<code>utf8</code>编码只支持<code>1-3</code>个字节 。 在 <code>utf8</code> 编码中，中文是占 3 个字节，其他数字、英文、符号占一个字节。但 emoji 符号占 4 个字节，一些较复杂的文字、繁体字也是 4 个字节。</li>
+<li><strong><code>utf8mb4</code></strong>：UTF-8 的完整实现，最多支持使用 4 个字节表示字符，因此，可以用来存储 emoji 符号。</li>
+</ul>
+<p><strong>为什么有两套 UTF-8 编码实现呢？</strong> 原因如下：</p>
+<p><img src="/index1/Untitled%202.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Untitled"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/mysql/">MySQL</a>
+        
+            <a href="/tags/nosql/">NoSQL</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 Kingslayer的博客
+    </section>
+    
+    <section class="powerby">
+        
+
+        
+
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -6,22 +6,153 @@
         <description>Recent content on Kingslayer的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 28 Mar 2024 08:52:06 +0000</lastBuildDate><atom:link href="https://BigSmallBrain.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Hello World</title>
-        <link>https://BigSmallBrain.github.io/p/hello-world/</link>
-        <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
+        <lastBuildDate>Mon, 15 Apr 2024 06:19:12 +0000</lastBuildDate><atom:link href="https://BigSmallBrain.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>数据库基础</title>
+        <link>https://BigSmallBrain.github.io/p/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/</link>
+        <pubDate>Mon, 15 Apr 2024 06:19:12 +0000</pubDate>
         
-        <guid>https://BigSmallBrain.github.io/p/hello-world/</guid>
-        <description>&lt;img src="https://BigSmallBrain.github.io/p/hello-world/cover.jpg" alt="Featured image of post Hello World" /&gt;&lt;p&gt;Welcome to Kingslayer. This is your first post. Edit or delete it, then start writing!&lt;/p&gt;
-&lt;p&gt;For more information about this theme, check the documentation: &lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://stack.jimmycai.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Want a site like this? Check out &lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack-starter&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;hugo-theme-stack-stater&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Photo by &lt;a class=&#34;link&#34; href=&#34;https://unsplash.com/@pawel_czerwinski&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Pawel Czerwinski&lt;/a&gt; on &lt;a class=&#34;link&#34; href=&#34;https://unsplash.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Unsplash&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+        <guid>https://BigSmallBrain.github.io/p/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/</guid>
+        <description>&lt;h1 id=&#34;基础&#34;&gt;基础&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-什么是数据库-数据库管理系统-数据库系统-数据库管理员&#34;&gt;1. 什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据库&lt;/strong&gt; : 数据库（DataBase 简称 DB）就是信息的集合或者说数据库是由数据库管理系统管理的数据的集合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据库管理系统&lt;/strong&gt; : 数据库管理系统（Database Management System 简称 DBMS）是一种操纵和管理数据库的大型软件，通常用于建立、使用和维护数据库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据库系统&lt;/strong&gt; : 数据库系统（Data Base System，简称 DBS）通常由软件、数据库和数据管理员（DBA）组成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据库管理员&lt;/strong&gt; : 数据库管理员（Database Administrator, 简称 DBA）负责全面管理和控制数据库系统。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-什么是元组-码-候选码-主码-外码-主属性-非主属性&#34;&gt;2. 什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;元组&lt;/strong&gt;：元组（tuple）是关系数据库中的基本概念，关系是一张表，表中的每行（即数据库中的每条记录）就是一个元组，每列就是一个属性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;码&lt;/strong&gt;：码就是能唯一标识实体的属性，对应表中的列。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;候选码&lt;/strong&gt;：例如：在学生实体中，“学号”是能唯一的区分学生实体的，同时又假设“姓名”、“班级”的属性组合足以区分学生实体，那么学号和姓名，班级都是候选码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主码&lt;/strong&gt; : 主码也叫主键。 一个实体集中只能有一个主码，但可以有多个候选码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;外码&lt;/strong&gt; : 外码也叫外键。如果一个关系中的一个属性是另外一个关系中的主码则这个属性为外码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主属性&lt;/strong&gt;：候选码中出现过的属性称为主属性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非主属性：&lt;/strong&gt; 不包含在任何一个候选码中的属性称为非主属性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-什么是-er-图&#34;&gt;3. 什么是 ER 图？&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;ER 图&lt;/strong&gt; 全称是 Entity Relationship Diagram（实体联系图），提供了表示实体类型、属性和联系的方法。&lt;/p&gt;
+&lt;p&gt;ER 图由下面 3 个要素组成：实体、属性、联系。&lt;/p&gt;
+&lt;p&gt;下图是一个学生选课的 ER 图，每个学生可以选若干门课程，同一门课程也可以被若干人选择，所以它们之间的关系是多对多（M: N）；另外，还有其他两种实体之间的关系是：1 对 1（1:1）、1 对多（1: N）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/index1/Untitled.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Untitled&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-数据库范式了解吗&#34;&gt;4. 数据库范式了解吗?&lt;/h2&gt;
+&lt;p&gt;数据库范式有 3 种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1NF(第一范式)：属性不可再分。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;2NF(第二范式)：在1NF 的基础之上，消除了非主属性对于码的部分函数依赖。&lt;/li&gt;
+&lt;li&gt;3NF(第三范式)：在 2NF 的基础之上，消除了非主属性对于码的传递函数依赖 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-主键和外键有什么区别&#34;&gt;5. 主键和外键有什么区别?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;主键(主码)&lt;/strong&gt;：主键用于唯一标识一个元组，不能有重复，不允许为空。一个表只能有一个主键。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;外键(外码)&lt;/strong&gt;：外键用来和其他表建立联系用，外键是另一表的主键，外键是可以有重复的，可以是空值。一个表可以有多个外键。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;6-为什么不推荐使用外键与级联&#34;&gt;6. 为什么不推荐使用外键与级联？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;增加了复杂性&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;增加了额外工作&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对分库分表不友好&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;实际上，外键也是有很多好处的，比如：保证了数据库数据的一致性和完整性；级联操作方便，减轻了程序代码量等。&lt;/p&gt;
+&lt;h2 id=&#34;7-dropdelete-与-truncate-区别&#34;&gt;7. drop、delete 与 truncate 区别？&lt;/h2&gt;
+&lt;h3 id=&#34;用法不同&#34;&gt;用法不同&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;drop&lt;/code&gt;（丢弃数据）: &lt;code&gt;drop table 表名&lt;/code&gt; ，直接将表都删除掉，在删除表的时候使用。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;truncate&lt;/code&gt; （清空数据）: &lt;code&gt;truncate table 表名&lt;/code&gt; ，只删除表中的数据，再插入数据的时候自增长 id 又从 1 开始，在清空表中数据的时候使用。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;delete&lt;/code&gt;（删除数据）: &lt;code&gt;delete from 表名 where 列名=值&lt;/code&gt;，删除某一行的数据，如果不加 &lt;code&gt;where&lt;/code&gt; 子句和&lt;code&gt;truncate table 表名&lt;/code&gt;作用类似。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;truncate&lt;/code&gt; 和不带 &lt;code&gt;where&lt;/code&gt;子句的 &lt;code&gt;delete&lt;/code&gt;、以及 &lt;code&gt;drop&lt;/code&gt; 都会删除表内的数据，但是 &lt;strong&gt;&lt;code&gt;truncate&lt;/code&gt; 和 &lt;code&gt;delete&lt;/code&gt; 只删除数据不删除表的结构(定义)，执行 &lt;code&gt;drop&lt;/code&gt; 语句，此表的结构也会删除，也就是执行&lt;code&gt;drop&lt;/code&gt; 之后对应的表不复存在。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;属于不同的数据库语言&#34;&gt;属于不同的数据库语言&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;truncate&lt;/code&gt; 和 &lt;code&gt;drop&lt;/code&gt; 属于 DDL（数据定义语言）语句，操作立即生效，原数据不放到 rollback segment 中，不能回滚，操作不触发 trigger。而 &lt;code&gt;delete&lt;/code&gt; 语句是 DML（数据库操作语言）语句，这个操作会放到 rollback segment 中，事务提交之后才生效。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DML 语句和 DDL 语句区别：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DML 是数据库操作语言（Data Manipulation Language）的缩写，是指对数据库中表记录的操作，主要包括表记录的插入、更新、删除和查询，是开发人员日常使用最频繁的操作。&lt;/li&gt;
+&lt;li&gt;DDL （Data Definition Language）是数据定义语言的缩写，简单来说，就是对数据库内部的对象进行创建、删除、修改的操作语言。它和 DML 语言的最大区别是 DML 只是对表内部数据的操作，而不涉及到表的定义、结构的修改，更不会涉及到其他对象。DDL 语句更多的被数据库管理员（DBA）所使用，一般的开发人员很少使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外，由于&lt;code&gt;select&lt;/code&gt;不会对表进行破坏，所以有的地方也会把&lt;code&gt;select&lt;/code&gt;单独区分开叫做数据库查询语言 DQL（Data Query Language）。&lt;/p&gt;
+&lt;h3 id=&#34;执行速度不同&#34;&gt;执行速度不同&lt;/h3&gt;
+&lt;p&gt;一般来说：&lt;code&gt;drop&lt;/code&gt; &amp;gt; &lt;code&gt;truncate&lt;/code&gt; &amp;gt; &lt;code&gt;delete&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;8-数据库设计通常分为哪几步&#34;&gt;8. 数据库设计通常分为哪几步?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;需求分析&lt;/strong&gt; : 分析用户的需求，包括数据、功能和性能需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;概念结构设计&lt;/strong&gt; : 主要采用 E-R 模型进行设计，包括画 E-R 图。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑结构设计&lt;/strong&gt; : 通过将 E-R 图转换成表，实现从 E-R 模型到关系模型的转换。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;物理结构设计&lt;/strong&gt; : 主要是为所设计的数据库选择合适的存储结构和存取路径。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据库实施&lt;/strong&gt; : 包括编程、测试和试运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据库的运行和维护&lt;/strong&gt; : 系统的运行与数据库的日常维护。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;9-nosql-是什么&#34;&gt;9. NoSQL 是什么？&lt;/h2&gt;
+&lt;p&gt;NoSQL（Not Only SQL 的缩写）泛指非关系型的数据库，主要针对的是键值、文档以及图形类型数据存储。并且，NoSQL 数据库天生支持分布式，数据冗余和数据分片等特性，旨在提供可扩展的高可用高性能数据存储解决方案。&lt;/p&gt;
+&lt;p&gt;一个常见的误解是 NoSQL 数据库或非关系型数据库不能很好地存储关系型数据。&lt;strong&gt;NoSQL 数据库可以存储关系型数据—它们与关系型数据库的存储方式不同。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;NoSQL 数据库代表：HBase、Cassandra、MongoDB、Redis。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/index1/Untitled%201.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Untitled&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;10-sql-和-nosql-有什么区别&#34;&gt;10. SQL 和 NoSQL 有什么区别？&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;SQL 数据库&lt;/th&gt;
+&lt;th&gt;NoSQL 数据库&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;结构化存储，具有固定行和列的表格&lt;/td&gt;
+&lt;td&gt;非结构化存储。文档：JSON 文档；键值：键值对；宽列：包含行和动态列的表；图：节点和边&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Oracle、MySQL、Microsoft SQL Server、PostgreSQL&lt;/td&gt;
+&lt;td&gt;文档：MongoDB、CouchDB，键值：Redis、DynamoDB，宽列：Cassandra、 HBase，图表：Neo4j、 Amazon Neptune、Giraph&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;结构化查询语言（SQL）&lt;/td&gt;
+&lt;td&gt;数据访问语法可能因数据库而异&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;11-nosql-数据库有什么优势&#34;&gt;11. NoSQL 数据库有什么优势？&lt;/h2&gt;
+&lt;p&gt;NoSQL 数据库非常适合许多现代应用程序，例如移动、Web 和游戏等应用程序，它们需要灵活、可扩展、高性能和功能强大的数据库以提供卓越的用户体验。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;灵活性：&lt;/strong&gt; NoSQL 数据库通常提供灵活的架构，以实现更快速、更多的迭代开发。灵活的数据模型使 NoSQL 数据库成为半结构化和非结构化数据的理想之选。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可扩展性：&lt;/strong&gt; NoSQL 数据库通常被设计为通过使用分布式硬件集群来横向扩展，而不是通过添加昂贵和强大的服务器来纵向扩展。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高性能：&lt;/strong&gt; NoSQL 数据库针对特定的数据模型和访问模式进行了优化，这与尝试使用关系数据库完成类似功能相比可实现更高的性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强大的功能：&lt;/strong&gt; NoSQL 数据库提供功能强大的 API 和数据类型，专门针对其各自的数据模型而构建。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;12-mysql-字符编码集中有两套-utf-8-编码实现&#34;&gt;12. MySQL 字符编码集中有两套 UTF-8 编码实现&lt;/h2&gt;
+&lt;p&gt;MySQL 字符编码集中有两套 UTF-8 编码实现：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;utf8&lt;/code&gt;&lt;/strong&gt;：&lt;code&gt;utf8&lt;/code&gt;编码只支持&lt;code&gt;1-3&lt;/code&gt;个字节 。 在 &lt;code&gt;utf8&lt;/code&gt; 编码中，中文是占 3 个字节，其他数字、英文、符号占一个字节。但 emoji 符号占 4 个字节，一些较复杂的文字、繁体字也是 4 个字节。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;utf8mb4&lt;/code&gt;&lt;/strong&gt;：UTF-8 的完整实现，最多支持使用 4 个字节表示字符，因此，可以用来存储 emoji 符号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;为什么有两套 UTF-8 编码实现呢？&lt;/strong&gt; 原因如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/index1/Untitled%202.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Untitled&#34;
+	
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -43,7 +174,7 @@
 &lt;li&gt;对于基于容器的虚拟化，与其他虚拟化不同，不需要其他软件&lt;/li&gt;
 &lt;li&gt;主机上的所有容器共享主机的调度程序，从而节省了额外资源的需求&lt;/li&gt;
 &lt;li&gt;与虚拟机映像相比，容器状态（Docker或LXC映像）的大小很小，因此容器映像很容易分发&lt;/li&gt;
-&lt;li&gt;容器中的资源管理是通过cgroup实现的。Cgroups不允许容器消耗比分配给它们更多的资源。虽然主机的所有资源都在虚拟机中可见，但无法使用。这可以通过在容器和主机上同时运行top或htop来实现。所有环境的输出看起来都很相似。&lt;/li&gt;
+&lt;li&gt;容器中的资源管理是通过cgroup实现的。Cgroups不允许容器消耗比分配给它们更多的资源。虽然主机的所有资源都在虚拟机中可见，但无法使用。这可以通过在容器和主机上同时运行top或htop来实现。所有环境的输出看起来都很相似&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;什么是docker镜像&#34;&gt;&lt;strong&gt;什么是Docker镜像&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Docker镜像是Docker容器的源代码，Docker镜像用于创建容器。一般使用build命令创建镜像。&lt;/p&gt;
@@ -190,396 +321,6 @@
 &lt;h2 id=&#34;如何临时退出一个正在交互的容器的终端而不终止它&#34;&gt;&lt;strong&gt;如何临时退出一个正在交互的容器的终端，而不终止它&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;按&lt;code&gt;Ctrl+p+q&lt;/code&gt;，如果按&lt;code&gt;Ctrl+c&lt;/code&gt;会使容器内的应用进程终止，进而会使容器终止。&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>Markdown Syntax Guide</title>
-        <link>https://BigSmallBrain.github.io/p/markdown-syntax-guide/</link>
-        <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://BigSmallBrain.github.io/p/markdown-syntax-guide/</guid>
-        <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
-&lt;h2 id=&#34;headings&#34;&gt;Headings&lt;/h2&gt;
-&lt;p&gt;The following HTML &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; elements represent six levels of section headings. &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; is the highest section level while &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; is the lowest.&lt;/p&gt;
-&lt;h1 id=&#34;h1&#34;&gt;H1&lt;/h1&gt;
-&lt;h2 id=&#34;h2&#34;&gt;H2&lt;/h2&gt;
-&lt;h3 id=&#34;h3&#34;&gt;H3&lt;/h3&gt;
-&lt;h4 id=&#34;h4&#34;&gt;H4&lt;/h4&gt;
-&lt;h5 id=&#34;h5&#34;&gt;H5&lt;/h5&gt;
-&lt;h6 id=&#34;h6&#34;&gt;H6&lt;/h6&gt;
-&lt;h2 id=&#34;paragraph&#34;&gt;Paragraph&lt;/h2&gt;
-&lt;p&gt;Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.&lt;/p&gt;
-&lt;p&gt;Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.&lt;/p&gt;
-&lt;h2 id=&#34;blockquotes&#34;&gt;Blockquotes&lt;/h2&gt;
-&lt;p&gt;The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a &lt;code&gt;footer&lt;/code&gt; or &lt;code&gt;cite&lt;/code&gt; element, and optionally with in-line changes such as annotations and abbreviations.&lt;/p&gt;
-&lt;h3 id=&#34;blockquote-without-attribution&#34;&gt;Blockquote without attribution&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-&lt;strong&gt;Note&lt;/strong&gt; that you can use &lt;em&gt;Markdown syntax&lt;/em&gt; within a blockquote.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;blockquote-with-attribution&#34;&gt;Blockquote with attribution&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Don&amp;rsquo;t communicate by sharing memory, share memory by communicating.&lt;br&gt;
-— &lt;cite&gt;Rob Pike&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;tables&#34;&gt;Tables&lt;/h2&gt;
-&lt;p&gt;Tables aren&amp;rsquo;t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Name&lt;/th&gt;
-&lt;th&gt;Age&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Bob&lt;/td&gt;
-&lt;td&gt;27&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Alice&lt;/td&gt;
-&lt;td&gt;23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;inline-markdown-within-tables&#34;&gt;Inline Markdown within tables&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Italics&lt;/th&gt;
-&lt;th&gt;Bold&lt;/th&gt;
-&lt;th&gt;Code&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;italics&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;code&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;A&lt;/th&gt;
-&lt;th&gt;B&lt;/th&gt;
-&lt;th&gt;C&lt;/th&gt;
-&lt;th&gt;D&lt;/th&gt;
-&lt;th&gt;E&lt;/th&gt;
-&lt;th&gt;F&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/td&gt;
-&lt;td&gt;Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.&lt;/td&gt;
-&lt;td&gt;Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus&lt;/td&gt;
-&lt;td&gt;Proin sit amet velit nec enim imperdiet vehicula.&lt;/td&gt;
-&lt;td&gt;Ut bibendum vestibulum quam, eu egestas turpis gravida nec&lt;/td&gt;
-&lt;td&gt;Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;code-blocks&#34;&gt;Code Blocks&lt;/h2&gt;
-&lt;h3 id=&#34;code-block-with-backticks&#34;&gt;Code block with backticks&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;charset&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Example HTML5 Document&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Test&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;code-block-indented-with-four-spaces&#34;&gt;Code block indented with four spaces&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
-&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
-&amp;lt;head&amp;gt;
-  &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
-  &amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-  &amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;diff-code-block&#34;&gt;Diff code block&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[dependencies.bevy]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git = &amp;#34;https://github.com/bevyengine/bevy&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rev = &amp;#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;- features = [&amp;#34;dynamic&amp;#34;]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gi&#34;&gt;+ features = [&amp;#34;jpeg&amp;#34;, &amp;#34;dynamic&amp;#34;]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;one-line-code-block&#34;&gt;One line code block&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;A paragraph&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;list-types&#34;&gt;List Types&lt;/h2&gt;
-&lt;h3 id=&#34;ordered-list&#34;&gt;Ordered List&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;First item&lt;/li&gt;
-&lt;li&gt;Second item&lt;/li&gt;
-&lt;li&gt;Third item&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;unordered-list&#34;&gt;Unordered List&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;List item&lt;/li&gt;
-&lt;li&gt;Another item&lt;/li&gt;
-&lt;li&gt;And another item&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;nested-list&#34;&gt;Nested list&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Fruit
-&lt;ul&gt;
-&lt;li&gt;Apple&lt;/li&gt;
-&lt;li&gt;Orange&lt;/li&gt;
-&lt;li&gt;Banana&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Dairy
-&lt;ul&gt;
-&lt;li&gt;Milk&lt;/li&gt;
-&lt;li&gt;Cheese&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;other-elements--abbr-sub-sup-kbd-mark&#34;&gt;Other Elements — abbr, sub, sup, kbd, mark&lt;/h2&gt;
-&lt;p&gt;&lt;abbr title=&#34;Graphics Interchange Format&#34;&gt;GIF&lt;/abbr&gt; is a bitmap image format.&lt;/p&gt;
-&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
-&lt;p&gt;X&lt;sup&gt;n&lt;/sup&gt; + Y&lt;sup&gt;n&lt;/sup&gt; = Z&lt;sup&gt;n&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;Press &lt;kbd&gt;CTRL&lt;/kbd&gt; + &lt;kbd&gt;ALT&lt;/kbd&gt; + &lt;kbd&gt;Delete&lt;/kbd&gt; to end the session.&lt;/p&gt;
-&lt;p&gt;Most &lt;mark&gt;salamanders&lt;/mark&gt; are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;The above quote is excerpted from Rob Pike&amp;rsquo;s &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=PAAkCSZUG1c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;talk&lt;/a&gt; during Gopherfest, November 18, 2015.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>Image gallery</title>
-        <link>https://BigSmallBrain.github.io/p/image-gallery/</link>
-        <pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://BigSmallBrain.github.io/p/image-gallery/</guid>
-        <description>&lt;img src="https://BigSmallBrain.github.io/p/image-gallery/2.jpg" alt="Featured image of post Image gallery" /&gt;&lt;p&gt;Hugo theme Stack supports the creation of interactive image galleries using Markdown. It&amp;rsquo;s powered by &lt;a class=&#34;link&#34; href=&#34;https://photoswipe.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;PhotoSwipe&lt;/a&gt; and its syntax was inspired by &lt;a class=&#34;link&#34; href=&#34;https://typlog.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Typlog&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;To use this feature, the image must be in the same directory as the Markdown file, as it uses Hugo&amp;rsquo;s page bundle feature to read the dimensions of the image. &lt;strong&gt;External images are not supported.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;syntax&#34;&gt;Syntax&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![&lt;span class=&#34;nt&#34;&gt;Image 1&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;1.jpg&lt;/span&gt;) ![&lt;span class=&#34;nt&#34;&gt;Image 2&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;2.jpg&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;result&#34;&gt;Result&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/p/image-gallery/1.jpg&#34;
-	width=&#34;2000&#34;
-	height=&#34;1400&#34;
-	srcset=&#34;https://BigSmallBrain.github.io/p/image-gallery/1_hudd2e8259c20ed0dcaa856c253552e90f_14625_480x0_resize_q75_box.jpg 480w, https://BigSmallBrain.github.io/p/image-gallery/1_hudd2e8259c20ed0dcaa856c253552e90f_14625_1024x0_resize_q75_box.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Image 1&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;142&#34;
-		data-flex-basis=&#34;342px&#34;
-	
-&gt; &lt;img src=&#34;https://BigSmallBrain.github.io/p/image-gallery/2.jpg&#34;
-	width=&#34;1500&#34;
-	height=&#34;2250&#34;
-	srcset=&#34;https://BigSmallBrain.github.io/p/image-gallery/2_hubce42636ecacc1a380b462f3110efcec_37455_480x0_resize_q75_box.jpg 480w, https://BigSmallBrain.github.io/p/image-gallery/2_hubce42636ecacc1a380b462f3110efcec_37455_1024x0_resize_q75_box.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Image 2&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;66&#34;
-		data-flex-basis=&#34;160px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Photo by &lt;a class=&#34;link&#34; href=&#34;https://unsplash.com/@mymind&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;mymind&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://unsplash.com/@lukechesser&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Luke Chesser&lt;/a&gt; on &lt;a class=&#34;link&#34; href=&#34;https://unsplash.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Unsplash&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        </item>
-        <item>
-        <title>Shortcodes</title>
-        <link>https://BigSmallBrain.github.io/p/shortcodes/</link>
-        <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://BigSmallBrain.github.io/p/shortcodes/</guid>
-        <description>&lt;img src="https://BigSmallBrain.github.io/p/shortcodes/cover.jpg" alt="Featured image of post Shortcodes" /&gt;&lt;p&gt;For more details, check out the &lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/writing/shortcodes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;bilibili-video&#34;&gt;Bilibili video&lt;/h2&gt;
-
-
-
-
-
-
-    
-
-
-&lt;div class=&#34;video-wrapper&#34;&gt;
-    &lt;iframe src=&#34;https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1d4411N7zD&#34;
-            scrolling=&#34;no&#34;
-            frameborder=&#34;no&#34;
-            framespacing=&#34;0&#34;
-            allowfullscreen=&#34;true&#34;
-    &gt;
-    &lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;tencent-video&#34;&gt;Tencent video&lt;/h2&gt;
-
-&lt;div class=&#34;video-wrapper&#34;&gt;
-    &lt;iframe src=&#34;https://v.qq.com/txp/iframe/player.html?vid=g0014r3khdw&amp;auto=0&#34; 
-            scrolling=&#34;no&#34; 
-            frameborder=&#34;no&#34;
-            framespacing=&#34;0&#34; 
-            allowfullscreen=&#34;true&#34;
-    &gt;
-    &lt;/iframe&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;youtube-video&#34;&gt;YouTube video&lt;/h2&gt;
-&lt;div class=&#34;video-wrapper&#34;&gt;
-    &lt;iframe loading=&#34;lazy&#34; 
-            src=&#34;https://www.youtube.com/embed/0qwALOOvUik&#34; 
-            allowfullscreen 
-            title=&#34;YouTube Video&#34;
-    &gt;
-    &lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;generic-video-file&#34;&gt;Generic video file&lt;/h2&gt;
-&lt;div class=&#34;video-wrapper&#34;&gt;
-    &lt;video
-    controls
-    src=&#34;https://www.w3schools.com/tags/movie.mp4&#34;
-    
-    
-    &gt;
-        &lt;p&gt;
-            Your browser doesn&#39;t support HTML5 video. Here is a
-            &lt;a href=&#34;https://www.w3schools.com/tags/movie.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
-        &lt;/p&gt;
-    &lt;/video&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;gist&#34;&gt;Gist&lt;/h2&gt;
-&lt;script src=&#34;https://gist.github.com/CaiJimmy/e2751a943de10b2a5b3a8a6c2120cb86.js&#34;&gt;&lt;/script&gt;
-
-&lt;h2 id=&#34;gitlab&#34;&gt;GitLab&lt;/h2&gt;
-&lt;script
-    type=&#34;application/javascript&#34;
-    src=&#34;https://gitlab.com/-/snippets/2589724.js&#34;
-&gt;&lt;/script&gt;
-&lt;h2 id=&#34;quote&#34;&gt;Quote&lt;/h2&gt;
-&lt;blockquote&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;&lt;span class=&#34;cite&#34;&gt;&lt;span&gt;― &lt;/span&gt;&lt;span&gt;A famous person, &lt;/span&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Book&#34;&gt;&lt;cite&gt;The book they wrote&lt;/cite&gt;&lt;/a&gt;&lt;/span&gt;&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Photo by &lt;a class=&#34;link&#34; href=&#34;https://unsplash.com/@codioful&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Codioful&lt;/a&gt; on &lt;a class=&#34;link&#34; href=&#34;https://unsplash.com/photos/WDSN62Qdxuk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Unsplash&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        </item>
-        <item>
-        <title>Math Typesetting</title>
-        <link>https://BigSmallBrain.github.io/p/math-typesetting/</link>
-        <pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://BigSmallBrain.github.io/p/math-typesetting/</guid>
-        <description>&lt;p&gt;Stack has built-in support for math typesetting using &lt;a class=&#34;link&#34; href=&#34;https://katex.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;KaTeX&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;It&amp;rsquo;s not enabled by default side-wide,&lt;/strong&gt; but you can enable it for individual posts by adding &lt;code&gt;math: true&lt;/code&gt; to the front matter. Or you can enable it side-wide by adding &lt;code&gt;math = true&lt;/code&gt; to the &lt;code&gt;params.article&lt;/code&gt; section in &lt;code&gt;config.toml&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;inline-math&#34;&gt;Inline math&lt;/h2&gt;
-&lt;p&gt;This is an inline mathematical expression: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;block-math&#34;&gt;Block math&lt;/h2&gt;
-&lt;p&gt;$$
-\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
-$$&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$$
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$$
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;$$
-f(x) = \int_{-\infty}^\infty\hat f(\xi),e^{2 \pi i \xi x},d\xi
-$$&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$$
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$$
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
         </item>
         <item>
         <title>归档</title>

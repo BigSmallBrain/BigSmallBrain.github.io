@@ -25,7 +25,7 @@
 &lt;li&gt;对于基于容器的虚拟化，与其他虚拟化不同，不需要其他软件&lt;/li&gt;
 &lt;li&gt;主机上的所有容器共享主机的调度程序，从而节省了额外资源的需求&lt;/li&gt;
 &lt;li&gt;与虚拟机映像相比，容器状态（Docker或LXC映像）的大小很小，因此容器映像很容易分发&lt;/li&gt;
-&lt;li&gt;容器中的资源管理是通过cgroup实现的。Cgroups不允许容器消耗比分配给它们更多的资源。虽然主机的所有资源都在虚拟机中可见，但无法使用。这可以通过在容器和主机上同时运行top或htop来实现。所有环境的输出看起来都很相似。&lt;/li&gt;
+&lt;li&gt;容器中的资源管理是通过cgroup实现的。Cgroups不允许容器消耗比分配给它们更多的资源。虽然主机的所有资源都在虚拟机中可见，但无法使用。这可以通过在容器和主机上同时运行top或htop来实现。所有环境的输出看起来都很相似&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;什么是docker镜像&#34;&gt;&lt;strong&gt;什么是Docker镜像&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Docker镜像是Docker容器的源代码，Docker镜像用于创建容器。一般使用build命令创建镜像。&lt;/p&gt;
