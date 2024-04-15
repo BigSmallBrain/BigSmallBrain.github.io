@@ -14,14 +14,14 @@
         <guid>https://BigSmallBrain.github.io/p/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/</guid>
         <description>&lt;h1 id=&#34;基础&#34;&gt;基础&lt;/h1&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;1-什么是数据库-数据库管理系统-数据库系统-数据库管理员&#34;&gt;1. 什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员?&lt;/h2&gt;
+&lt;h2 id=&#34;什么是数据库-数据库管理系统-数据库系统-数据库管理员&#34;&gt;什么是数据库, 数据库管理系统, 数据库系统, 数据库管理员?&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;数据库&lt;/strong&gt; : 数据库（DataBase 简称 DB）就是信息的集合或者说数据库是由数据库管理系统管理的数据的集合。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;数据库管理系统&lt;/strong&gt; : 数据库管理系统（Database Management System 简称 DBMS）是一种操纵和管理数据库的大型软件，通常用于建立、使用和维护数据库。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;数据库系统&lt;/strong&gt; : 数据库系统（Data Base System，简称 DBS）通常由软件、数据库和数据管理员（DBA）组成。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;数据库管理员&lt;/strong&gt; : 数据库管理员（Database Administrator, 简称 DBA）负责全面管理和控制数据库系统。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;2-什么是元组-码-候选码-主码-外码-主属性-非主属性&#34;&gt;2. 什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？&lt;/h2&gt;
+&lt;h2 id=&#34;什么是元组-码-候选码-主码-外码-主属性-非主属性&#34;&gt;什么是元组, 码, 候选码, 主码, 外码, 主属性, 非主属性？&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;元组&lt;/strong&gt;：元组（tuple）是关系数据库中的基本概念，关系是一张表，表中的每行（即数据库中的每条记录）就是一个元组，每列就是一个属性。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;码&lt;/strong&gt;：码就是能唯一标识实体的属性，对应表中的列。&lt;/li&gt;
@@ -31,11 +31,11 @@
 &lt;li&gt;&lt;strong&gt;主属性&lt;/strong&gt;：候选码中出现过的属性称为主属性。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;非主属性：&lt;/strong&gt; 不包含在任何一个候选码中的属性称为非主属性。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;3-什么是-er-图&#34;&gt;3. 什么是 ER 图？&lt;/h2&gt;
+&lt;h2 id=&#34;什么是-er-图&#34;&gt;什么是 ER 图？&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;ER 图&lt;/strong&gt; 全称是 Entity Relationship Diagram（实体联系图），提供了表示实体类型、属性和联系的方法。&lt;/p&gt;
 &lt;p&gt;ER 图由下面 3 个要素组成：实体、属性、联系。&lt;/p&gt;
 &lt;p&gt;下图是一个学生选课的 ER 图，每个学生可以选若干门课程，同一门课程也可以被若干人选择，所以它们之间的关系是多对多（M: N）；另外，还有其他两种实体之间的关系是：1 对 1（1:1）、1 对多（1: N）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/index1/Untitled.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/imgs/database/images1.png&#34;
 	
 	
 	
@@ -45,26 +45,26 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;4-数据库范式了解吗&#34;&gt;4. 数据库范式了解吗?&lt;/h2&gt;
+&lt;h2 id=&#34;数据库范式了解吗&#34;&gt;数据库范式了解吗?&lt;/h2&gt;
 &lt;p&gt;数据库范式有 3 种：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;1NF(第一范式)：属性不可再分。&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;2NF(第二范式)：在1NF 的基础之上，消除了非主属性对于码的部分函数依赖。&lt;/li&gt;
 &lt;li&gt;3NF(第三范式)：在 2NF 的基础之上，消除了非主属性对于码的传递函数依赖 。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;5-主键和外键有什么区别&#34;&gt;5. 主键和外键有什么区别?&lt;/h2&gt;
+&lt;h2 id=&#34;主键和外键有什么区别&#34;&gt;主键和外键有什么区别?&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;主键(主码)&lt;/strong&gt;：主键用于唯一标识一个元组，不能有重复，不允许为空。一个表只能有一个主键。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;外键(外码)&lt;/strong&gt;：外键用来和其他表建立联系用，外键是另一表的主键，外键是可以有重复的，可以是空值。一个表可以有多个外键。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;6-为什么不推荐使用外键与级联&#34;&gt;6. 为什么不推荐使用外键与级联？&lt;/h2&gt;
+&lt;h2 id=&#34;为什么不推荐使用外键与级联&#34;&gt;为什么不推荐使用外键与级联？&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;增加了复杂性&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;增加了额外工作&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;对分库分表不友好&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;实际上，外键也是有很多好处的，比如：保证了数据库数据的一致性和完整性；级联操作方便，减轻了程序代码量等。&lt;/p&gt;
-&lt;h2 id=&#34;7-dropdelete-与-truncate-区别&#34;&gt;7. drop、delete 与 truncate 区别？&lt;/h2&gt;
+&lt;h2 id=&#34;dropdelete-与-truncate-区别&#34;&gt;drop、delete 与 truncate 区别？&lt;/h2&gt;
 &lt;h3 id=&#34;用法不同&#34;&gt;用法不同&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;drop&lt;/code&gt;（丢弃数据）: &lt;code&gt;drop table 表名&lt;/code&gt; ，直接将表都删除掉，在删除表的时候使用。&lt;/li&gt;
@@ -82,7 +82,7 @@
 &lt;p&gt;另外，由于&lt;code&gt;select&lt;/code&gt;不会对表进行破坏，所以有的地方也会把&lt;code&gt;select&lt;/code&gt;单独区分开叫做数据库查询语言 DQL（Data Query Language）。&lt;/p&gt;
 &lt;h3 id=&#34;执行速度不同&#34;&gt;执行速度不同&lt;/h3&gt;
 &lt;p&gt;一般来说：&lt;code&gt;drop&lt;/code&gt; &amp;gt; &lt;code&gt;truncate&lt;/code&gt; &amp;gt; &lt;code&gt;delete&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;8-数据库设计通常分为哪几步&#34;&gt;8. 数据库设计通常分为哪几步?&lt;/h2&gt;
+&lt;h2 id=&#34;数据库设计通常分为哪几步&#34;&gt;数据库设计通常分为哪几步?&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;需求分析&lt;/strong&gt; : 分析用户的需求，包括数据、功能和性能需求。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;概念结构设计&lt;/strong&gt; : 主要采用 E-R 模型进行设计，包括画 E-R 图。&lt;/li&gt;
@@ -91,11 +91,11 @@
 &lt;li&gt;&lt;strong&gt;数据库实施&lt;/strong&gt; : 包括编程、测试和试运行。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;数据库的运行和维护&lt;/strong&gt; : 系统的运行与数据库的日常维护。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;9-nosql-是什么&#34;&gt;9. NoSQL 是什么？&lt;/h2&gt;
+&lt;h2 id=&#34;nosql-是什么&#34;&gt;NoSQL 是什么？&lt;/h2&gt;
 &lt;p&gt;NoSQL（Not Only SQL 的缩写）泛指非关系型的数据库，主要针对的是键值、文档以及图形类型数据存储。并且，NoSQL 数据库天生支持分布式，数据冗余和数据分片等特性，旨在提供可扩展的高可用高性能数据存储解决方案。&lt;/p&gt;
 &lt;p&gt;一个常见的误解是 NoSQL 数据库或非关系型数据库不能很好地存储关系型数据。&lt;strong&gt;NoSQL 数据库可以存储关系型数据—它们与关系型数据库的存储方式不同。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;NoSQL 数据库代表：HBase、Cassandra、MongoDB、Redis。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/index1/Untitled%201.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/imgs/database/images2.png&#34;
 	
 	
 	
@@ -105,7 +105,7 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;10-sql-和-nosql-有什么区别&#34;&gt;10. SQL 和 NoSQL 有什么区别？&lt;/h2&gt;
+&lt;h2 id=&#34;sql-和-nosql-有什么区别&#34;&gt;SQL 和 NoSQL 有什么区别？&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -128,7 +128,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;11-nosql-数据库有什么优势&#34;&gt;11. NoSQL 数据库有什么优势？&lt;/h2&gt;
+&lt;h2 id=&#34;nosql-数据库有什么优势&#34;&gt;NoSQL 数据库有什么优势？&lt;/h2&gt;
 &lt;p&gt;NoSQL 数据库非常适合许多现代应用程序，例如移动、Web 和游戏等应用程序，它们需要灵活、可扩展、高性能和功能强大的数据库以提供卓越的用户体验。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;灵活性：&lt;/strong&gt; NoSQL 数据库通常提供灵活的架构，以实现更快速、更多的迭代开发。灵活的数据模型使 NoSQL 数据库成为半结构化和非结构化数据的理想之选。&lt;/li&gt;
@@ -136,14 +136,14 @@
 &lt;li&gt;&lt;strong&gt;高性能：&lt;/strong&gt; NoSQL 数据库针对特定的数据模型和访问模式进行了优化，这与尝试使用关系数据库完成类似功能相比可实现更高的性能。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;强大的功能：&lt;/strong&gt; NoSQL 数据库提供功能强大的 API 和数据类型，专门针对其各自的数据模型而构建。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;12-mysql-字符编码集中有两套-utf-8-编码实现&#34;&gt;12. MySQL 字符编码集中有两套 UTF-8 编码实现&lt;/h2&gt;
+&lt;h2 id=&#34;mysql-字符编码集中有两套-utf-8-编码实现&#34;&gt;MySQL 字符编码集中有两套 UTF-8 编码实现&lt;/h2&gt;
 &lt;p&gt;MySQL 字符编码集中有两套 UTF-8 编码实现：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;utf8&lt;/code&gt;&lt;/strong&gt;：&lt;code&gt;utf8&lt;/code&gt;编码只支持&lt;code&gt;1-3&lt;/code&gt;个字节 。 在 &lt;code&gt;utf8&lt;/code&gt; 编码中，中文是占 3 个字节，其他数字、英文、符号占一个字节。但 emoji 符号占 4 个字节，一些较复杂的文字、繁体字也是 4 个字节。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;utf8mb4&lt;/code&gt;&lt;/strong&gt;：UTF-8 的完整实现，最多支持使用 4 个字节表示字符，因此，可以用来存储 emoji 符号。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;为什么有两套 UTF-8 编码实现呢？&lt;/strong&gt; 原因如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/index1/Untitled%202.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://BigSmallBrain.github.io/imgs/database/images3.png&#34;
 	
 	
 	
